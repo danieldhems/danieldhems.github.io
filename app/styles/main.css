@@ -12,7 +12,8 @@ body {
 }
 
 .project {
-    margin-bottom:10px;
+    margin-bottom:2em;
+    box-shadow: 3px 3px 5px #5f5e5e;
 }
 .project img {
     width:100%;
