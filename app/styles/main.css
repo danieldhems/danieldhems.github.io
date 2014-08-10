@@ -1,9 +1,13 @@
 body {
-    background-color: #cecece;
-    font-family: "Droid Serif", Arial, sans-serif;
-    color:#5f5e5e;
+    background-color: #3d3c3c;
+    font-family: "Droid Sans", Arial, sans-serif;
+    color:#d1cece;
     font-size:16px;
     font-size:1em;
+}
+
+h2 {
+    margin-bottom:1em;
 }
 
 .container {
@@ -11,16 +15,32 @@ body {
     margin:0 auto;
 }
 
+.site-title {
+    font-size:36px;
+    margin-top:1em;
+    margin-bottom:2em;
+}
+.site-sub-title {
+    font-size:20px;
+    display:block;
+}
+
 .project {
     margin-bottom:2em;
-    box-shadow: 3px 3px 5px #5f5e5e;
+    position:relative;
 }
-.project img {
+img {
     width:100%;
+    display:block;
 }
 
 .project-overlay {
-    display:none;
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
 }
 
 ul {
