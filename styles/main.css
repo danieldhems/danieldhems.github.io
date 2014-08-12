@@ -7,7 +7,17 @@ body {
 }
 
 h2 {
-    margin-bottom:1em;
+    margin-bottom: 0.6em;
+    font-size: 1.7em;
+    padding-left:0.2rem;
+}
+
+h3 {
+    margin-bottom:0.3em;
+}
+
+p{
+    margin-top:0;
 }
 
 .container {
@@ -16,18 +26,24 @@ h2 {
 }
 
 .site-title {
-    font-size:36px;
-    margin-top:1em;
-    margin-bottom:2em;
+    font-size:3rem;
+    margin-top:3rem;
+    margin-bottom:5rem;
 }
 .site-sub-title {
-    font-size:20px;
+    font-size:1.3rem;
     display:block;
+    padding-left:0.3rem;
 }
 
 .project {
-    margin-bottom:2em;
+    margin-bottom:3em;
+    padding-bottom:2em;
     position:relative;
+    border-bottom: 2px solid;
+}
+.project img {
+    margin-bottom:3em;
 }
 img {
     width:100%;
