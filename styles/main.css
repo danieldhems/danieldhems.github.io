@@ -51,6 +51,9 @@ img {
   width: 100%;
   display: block; }
 
+.view-link {
+  text-decoration: underline; }
+
 .social {
   padding-top: 1em; }
   .social .social-icon {
@@ -83,3 +86,5 @@ li {
   content: "";
   display: block;
   clear: both; }
+
+/*# sourceMappingURL=main.css.map */
