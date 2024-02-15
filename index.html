@@ -18,74 +18,74 @@
   <div class="container">
 
     <div class="header">
-      <h1 class="site-title">Dan Hems <span class="site-sub-title">Web Developer</span></h1>
+      <h1 class="site-title">Dan Hems <span class="site-sub-title">Software Engineer</span></h1>
     </div>
+    <h2>A little about me</h2>
     <div class="intro">
-      <p>Focusing on the front end, writing clean, semantic markup and well-structured styles. Giving too much thought to naming-convention, and finding joy in geeky things that make development easier. Overly-specific CSS selectors make me sad.</p>
-
-      <p>Excited by JS app frameworks and advanced workflow tools. Generating documentation from commented code gives me the warm-and-fuzzies. Using the terminal and bash every chance I get.</p>
-
-      <p>It's hard to imagine building without Git.</p>
+      <p>I'm a Software Engineer specialising in developing web applications with JavaScript.<br>My primary focus is working on application logic and improving my knowledge of software design principals.</p>
+      <p>Historically, I built static websites as part of my employment, and these were primarily agency-based projects that were designed for marketing purposes. After a time I grew tired of this work and started to play around with some concepts for game development as this is where my passion in engineering lay.</p><p>At the time of writing this (Feb 2024) I am actively developing Puzzly, my jigsaw puzzle project.</p>
     </div>
-
     <div class="project-list">
       <h2>Projects</h2>
       <ul>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://codepen.io/danhems/pen/qErEzL">Pong (playable)</a>
-          </h3>
-          <img class="project-image" src="images/960/pong.jpg" alt="">
-          <p>This is my own rendition of the classic game, built with JS and the DOM. I wanted to try something new and challenging, and found inspiration from some live-coding talks I watched online, so I decided to give this a shot. <br>The game uses JS only (no frameworks or libraries) for ball and paddle movement, and collision detection.</p>
-          <p>It's more a proof-of-concept than a finished product, but something I continue to be proud of. I am looking to expand on this in the near future and build something more complicated with canvas.</p>
-          <a class="view-link" href="http://codepen.io/danhems/pen/qErEzL">View project (links to Codepen)</a>
-        </li>
+          <h3 class="project-title">Puzzly / Eliza's Jigsaws<br><sub>Tech: HTML5, CSS, JavaScript, Canvas, SVG Paths, NodeJS, ExpressJS, MongoDB, WebdriverIO.</sub></h3>
+          <img class="project-image" src="images/puzzly.png" alt="Screenshot of the Puzzly project">
+          <p>This is a jigsaw puzzle application I am actively developing.<br><br>It draws inspiration from applications like Just Jigsaws that can be found on the Play Store. It allows the user to upload a picture and generate a jigsaw puzzle from it that they can then solve.</p><p>This is my primary focus and very close to my heart as it was a request from my Wife: She wanted a puzzle-solving experience without the ads and limitations of the products currently available on the Play Store.</p><p>I began work on this six years ago (including a lengthy hiatus, during which time I almost forgot about it), and I've had to go through a few architectural changes during development when it became apparent that I had made a mistake, or I was pursuing a path that wasn't viable for what I was trying to achieve.</p><p>I feel that this is the project that defines me at this stage in my career: This project is about engineering a unique experience for the user, and tackling the logical and behavioural requirements it demands. It has given me the opportunity to try new ideas, apply best-practices, learn to solve problems and work with technologies I don't get to play with in my employment. It has also given me good experience of working on the full stack of application development.</p>
+          <p>At present this project lives only on my machine's local server: I want to get it hosted somewhere so that it can be used by others, but I haven't yet found a free solution for this. Ideally, I'd like to make the backend serverless, and this would make for yet-another opportunity to learn a new skill and gain some new experience.</p>
+          <h4>Dynamic puzzle generation</h4>
+          <p>One of the core drives behind this project is that I'm generating an entirely unique puzzle every time one is created. This means that the pieces that comprise the puzzle are always in a unique configuration in terms of their plug and socket connectors. This will be more noticeable when I implement 'natural' and 'wild' shape types (a feature I plan to work on very soon).</p>
+          <h4>Canvas and SVG</h4>
+          <p>I'm rendering the puzzle pieces using Canvas and SVG paths. The image the user provides is scanned from top to bottom, left to right, and divided into squares and rectangles (depending on the connectors the piece has). This information is then used to generate a PNG sprite by calling the Canvas' drawImage and clip methods. These methods are given the coordinates for each piece's rectangle and clip them to an SVG path, and this produces the jigsaw shape.</p>
+          <h4>Integration testing</h4>
+          <p>In the last week or so (Feb 2024), I've finally started writing integration tests.<br>This is something I've been wanting to do for months but I had to make sure it was stable enough for the tests to be useful. Having just finished the latest architectural change (implementing classes for the 'movable' elements in the puzzle i.e. pieces, groups of connected pieces, non-connected pieces selected by drag-and-select, and pieces picked up from the pockets), I finally felt confident to begin integration testing.</p><p>At first I tried setting up PlaywrightJS as I've been using this in my current employment and I'm fairly familiar with it, but I found that it doesn't handle file uploads very well. After failing to get this to work, I read about WebdriverIO and decided to give that a go instead. Where PlaywrightJS refused to let me upload an image after days of arguing, WebdriverIO let me do this with little resistance, so I kept with this framework instead and set about learning how WDIO does testing. I am now working on building out the helper functions my tests will need in order for me to write scenarios that will drag this piece near that piece, connect them or don't connect them, drag and drop this piece out-of-bounds etc.</p>
+          <br>
+          <h4>Future plans</h4>
+          <p>New features<br>As I said above, I intend to generate more natural looking jigsaw piece shapes, and eventually 'wild' shapes which can have at least three sides (not limited to only four sides), and puzzles which do not conform to a grid of equal rows and columns. I also intend to support very large puzzles (thousands or tens of thousands of pieces) which could be solved in smaller sections.<br><br>User accounts<br>A critical feature this application will need in order to be considered 'live' is support for user accounts. While my Wife wil always be the 'original' user, I have always worked on this with other users in mind. Funnily enough, the first person other than myself to use this has actually been my ten-year-old niece. She likes solving jigsaw puzzles, too, and often when we babysit her she likes to go on my machine and have a play with Puzzly. Half of the time it is broken for some reason or another, or I'm in the middle of fixing something and she'll just take over my machine and start dragging pieces around, or typing in some silliness in my editor. She is the first true QA tester for this project, and she is quite proud of that.<br><br>Port to Kotlin<br>I am planning to eventually have an Android version of this application, though this will mean learning Kotlin first / along the way. This is something I am very interested in doing as it would provide a better experience for the user, and it would be exciting for me to learn a new (and strongly-typed) language, and it would be a breath of fresh air to develop in a non-web-browser environment.</p>
+          <li class="project">
+            <h3 class="project-title">
+            <a href="http://codepen.io/danhems/pen/qErEzL">Pong</a>
+            </h3>
+            <img class="project-image" src="images/960/pong.jpg" alt="">
+            <p>This is my own rendition of the classic game, built with JS and the DOM. I wanted to try something new and challenging, and found inspiration from some live-coding talks I watched online, so I decided to give this a shot. <br>The game uses JS only (no frameworks or libraries) for ball and paddle movement, and collision detection.</p>
+            <a class="view-link" href="http://codepen.io/danhems/pen/qErEzL">View project (links to Codepen)</a>
+          </li>
+        </ul>
+      </div>
+      <h3>Legacy</h3>
+      <p>These are projects I've worked on in the past, mostly for previous employers. These are all ancient and, unsurprisingly, appear to have long-since been taken offline or moved. These projects only really serve to illustrate my earlier career.</p>
+      <ul>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://prize.tatacommunications.com">The F1 Connectivity Innovation Prize</a>
-          </h3>
+          <h3 class="project-title">The F1 Connectivity Innovation Prize</h3>
           <img class="project-image" src="images/960/f1_prize.jpg" alt="">
           <p>Website for The Formula 1 Connectivity Innovation Prize, a competition currently being run by Tata Communications, the official connectivity provider for Formula 1. The competition calls on members of the public to find new and innovative ways of presenting Tata's essential race data by way of three unique technical challenges.</p>
           <p>This project saw my first outing with the MEAN stack (Mongo DB, Angular, Express and Node), and has been a great learning experience for me in using these exciting new tools. I tackled many new challenges in building this site, many of which opened doors to new techniques and practises that I now use as standard.</p>
-          <a class="view-link" href="http://prize.tatacommunications.com">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://thewrightreport.net">The Wright Report</a>
-          </h3>
+          <h3 class="project-title">The Wright Report</h3>
           <img class="project-image" src="images/960/wright_report.jpg" alt="">
           <p>Microsite for the Wright Report, a review of advanced manufacturing in the UK. This site provides an introduction for the report, information about the author, and download links for the report as either low or hi-res PDF. The report was authored by Jaguar Land Rover's Executive Director Mike Wright.</p>
-          <a class="view-link" href="http://thewrightreport.net">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://landrovermediahub.com">Land Rover Media Hub</a>
-          </h3>
+          <h3 class="project-title">Land Rover Media Hub</h3>
           <img class="project-image" src="images/960/media_hub.jpg" alt="">
           <p>Promotional microsite for the launch of the award-winning Land Rover Media Hub iPad app. This is a single-page site that provides information about the features and capabilities of the app, and features images of its interface and usage.</p>
-          <a class="view-link" href="http://landrovermediahub.com">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://c-x17media.jaguar.com">Jaguar C-X17</a>
-          </h3>
+          <h3 class="project-title">Jaguar C-X17</h3>
           <img class="project-image" src="images/960/cx17.jpg" alt="">
           <p>Microsite for the launch of the Jaguar C-X17 concept car. I took over this project from its original developer, and carried out additional work ahead of the Los Angeles Auto Show, and Auto Guangzhou in 2013. The site features rich images, video content, and technical information for promotion to the press and enthusiasts.</p>
           <p>The Susy grid system was used to build the layouts.</p>
-          <a class="view-link" href="http://c-x17media.jaguar.com">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://peterfickling.com">Peter Fickling - A Designer</a>
-          </h3>
+          <h3 class="project-title">Peter Fickling - A Designer</h3>
           <img class="project-image" src="images/960/fickling.jpg" alt="">
           <p>Portfolio website for Peter Fickling, a graphic designer and former colleague of mine. He needed an online presence while he interviewed for freelance work. He provided the design which I then built as a reponsive website over a few weekends.</p>
+          <p>The design for this website has changed</p>
           <a class="view-link" href="http://peterfickling.com">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://m2m.riotinto.com">Mines to markets</a>
-          </h3>
+          <h3 class="project-title">Mines to markets</h3>
           <img class="project-image" src="images/960/m2m.jpg" alt="">
           <p>Magazine-oriented website for the Rio Tinto mining corporation, powered by Drupal. Aimed at stakeholders and shareholders, this magazine is released quartely with human-focused articles revolving around the work Rio tinto does with communities, and its dedication to sustainable energy.</p>
           <p>Website is fully responsive, designed to have a great UX across devices. Great care was taken to emphasize the flow of articles and content. Each issue is clearly defined for the user, and a page-turner-like experience is provided for the user to read issues from cover to cover.</p>
@@ -93,12 +93,9 @@
           <a class="view-link" href="http://m2m.riotinto.com">View project</a>
         </li>
         <li class="project">
-          <h3 class="project-title">
-          <a href="http://enjoysaint.uk">Enjoy Saint</a>
-          </h3>
+          <h3 class="project-title">Enjoy Saint</h3>
           <img class="project-image" src="images/960/saint.jpg" alt="">
           <p>Promotional website for Saint lager, featuring the story behind it, an index of stockists and a blog for social events and interest-stories for British Craft.</p>
-          <a class="view-link" href="http://enjoysaint.uk">View project</a>
         </li>
       </ul>
     </div>
@@ -106,20 +103,7 @@
       <a class="social-icon" href="http://uk.linkedin.com/pub/dan-hems/20/587/642/">
         <img src="images/icons/46/linkedin_dark.png">
       </a>
-      <a class="social-icon" href="http://twitter.com/danieldhems">
-        <img src="images/icons/46/twitter_dark.png">
-      </a>
     </div>
   </div>
-
-  <!-- build:js scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="../bower_components/jquery/dist/jquery.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
-
-  <!-- build:js({app,.tmp}) scripts/main.js -->
-  <script src="scripts/main.js"></script>
-  <!-- endbuild -->
 </body>
 </html>
